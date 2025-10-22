@@ -9,7 +9,7 @@ public class IterativeMethods {
 	 * Computes the geometric sum for the first n terms in the series
 	 * 
 	 * @param n the number of terms to include in the sum
-	 * @return the sum of the first n terms of the geometric series (1/2 + 1/4 + 1/8
+	 * @return the sum of the first n terms of the geometric series (0+1/2 + 1/4 + 1/8
 	 *         ...)
 	 */
 	public static double geometricSum(int n) {
