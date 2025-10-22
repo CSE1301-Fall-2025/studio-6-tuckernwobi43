@@ -30,8 +30,15 @@ public class RecursiveMethods {
 	 * @param radiusMinimumDrawingThreshold radius above which drawing should occur
 	 */
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius, double radiusMinimumDrawingThreshold) {
-		
-		// FIXME complete the recursive drawing
+		if(radius <= radiusMinimumDrawingThreshold) {
+			return;
+		} else {
+			StdDraw.circle(xCenter,yCenter,radius);
+			circlesUponCircles(xCenter, yCenter + radius, radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter + radius, yCenter,  radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter , yCenter - radius,  radius/3, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter - radius, yCenter,  radius/3, radiusMinimumDrawingThreshold);
+		}
 	}
 	
 
@@ -42,10 +49,20 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
+		int index = 0;
+		int[] reversed = new int[array.length]; 
+		// FIXME create a helper method that can recursively reverse the given array
+		return toReversedHelper(array, reversed, index);
 		
-			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
-		
+	}
+
+	public static int[] toReversedHelper(int[] array, int[] reversed, int index){
+		if (index == array.length){
+			return reversed;
+		} else{
+			reversed[index] = array[array.length-1-index];
+			return toReversedHelper(array,reversed,index+1);
+		}
 	}
 
 	/**
@@ -57,9 +74,11 @@ public class RecursiveMethods {
 	 * @return greatest common divisor of p and q
 	 */
 	public static int gcd(int p, int q) {
+		if( q == 0 )
+			return  p;
+	} else {
 		
-			// FIXME compute the gcd of p and q using recursion
-			return 0;
+	}
 		
 	}
 
